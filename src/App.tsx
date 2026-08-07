@@ -2,21 +2,35 @@ import { useState } from 'react'
 import './App.css'
 import { EDUCATION, EXPERIENCE, PROJECTS, SKILLS } from './data/data'
 import Modal from './Modal';
+import ModalContent from './ModalContent';
 
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState([]);
   const [selectedNav, setSelectedNav] = useState('');
   const { HARD_SKILLS, SOFT_SKILLS, DB, TOOLS, AI } = SKILLS;
 
+  const generateModalContent = (title: string, content: string[]) => {
+    setIsOpen(true);
+    setTitle(title);
+    setContent(content);
+  }
+
   return (
     <>
-      {isOpen && <Modal setIsOpen={setIsOpen}><h1>DATA</h1></Modal>}
+      {
+        isOpen &&
+        <Modal setIsOpen={setIsOpen}>
+          <ModalContent title={title} content={content} />
+        </Modal>
+      }
+
       <div className='ml-[6vw] w-[94vw] h-screen flex flex-col justify-around items-center p-2'>
         <div className='font-semibold text-6xl md:text-9xl'>
           <strong>
-            SOFTWARE &nbsp;
-            <span className='animate-pulse'>ENGINEER</span>
+            SOFTWARE ENGINEER
           </strong>
         </div>
         <section id='certificates' className='my-2 flex flex-col items-start'>
@@ -86,7 +100,7 @@ function App() {
             <h1 className={selectedNav === 'experience' && 'underline'}>Experience</h1>
             {EXPERIENCE.map(exp => (
               <div key={exp.title}
-                onClick={() => setIsOpen(true)}
+                onClick={() => generateModalContent(exp.title, exp.description)}
                 className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3 cursor-pointer'
               >
                 <div className='font-bold text-2xl'>
@@ -118,7 +132,7 @@ function App() {
             <div className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3'>
               {PROJECTS.map((project) => (
                 <div className='font-bold text-2xl' key={project.link}>
-                  <strong className='cursor-pointer'>
+                  <strong>
                     {project.title}&nbsp;
                     {project.withLink && <a href={project.link} target='_blank' className='float-right cursor-pointer'><img src='src/assets/icons/new-tab.svg' height={30} width={30} /></a>}
                   </strong>

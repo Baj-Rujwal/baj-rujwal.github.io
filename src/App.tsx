@@ -1,16 +1,17 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import heroImg from './assets/hero.png'
+import { useState } from 'react'
 import './App.css'
 import { EDUCATION, EXPERIENCE, PROJECTS, SKILLS } from './data/data'
+import Modal from './Modal';
 
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedNav, setSelectedNav] = useState('');
   const { HARD_SKILLS, SOFT_SKILLS, DB, TOOLS, AI } = SKILLS;
 
   return (
     <>
+      {isOpen && <Modal setIsOpen={setIsOpen}><h1>DATA</h1></Modal>}
       <div className='ml-[6vw] w-[94vw] h-screen flex flex-col justify-around items-center p-2'>
         <div className='font-semibold text-6xl md:text-9xl'>
           <strong>
@@ -34,14 +35,14 @@ function App() {
       </div>
       <section className='flex h-screen'>
         <aside className='fixed top-0 w-[5vw] flex flex-col justify-center h-full'>
-          <span className='nav-item' title='Skills'><a href='#skills'><img src='src/assets/icons/gears.svg' width={40} height={40} /></a></span>
-          <span className='nav-item'><a href='#experience'><img src='src/assets/icons/steps.svg' width={40} height={40} /></a></span>
-          <span className='nav-item'><a href='#education'><img src='src/assets/icons/education.svg' width={40} height={40} /></a></span>
-          <span className='nav-item'><a href='#projects'><img src='src/assets/icons/projects.svg' width={40} height={40} /></a></span>
+          <span className='nav-item' onClick={() => setSelectedNav('skills')}><a href='#skills'><img src='src/assets/icons/gears.svg' width={40} height={40} /></a></span>
+          <span className='nav-item' onClick={() => setSelectedNav('experience')}><a href='#experience'><img src='src/assets/icons/steps.svg' width={40} height={40} /></a></span>
+          <span className='nav-item' onClick={() => setSelectedNav('education')}><a href='#education'><img src='src/assets/icons/education.svg' width={40} height={40} /></a></span>
+          <span className='nav-item' onClick={() => setSelectedNav('projects')}><a href='#projects'><img src='src/assets/icons/projects.svg' width={40} height={40} /></a></span>
         </aside>
         <main className='ml-[6vw] pl-5 flex-1'>
           <div className='flex flex-col items-start' id='skills'>
-            <h1>Skills</h1>
+            <h1 className={selectedNav === 'skills' && 'underline'}>Skills</h1>
             <div className='grid grid-cols-8 grid-rows-5 gap-3 mx-2'>
               <div className='skill-subgrid col-span-4 row-span-3'>
                 {HARD_SKILLS.map(sk => (
@@ -82,9 +83,12 @@ function App() {
           </div>
           <br />
           <div className='flex flex-col w-[91vw] items-start gap-2' id='experience'>
-            <h1>Experience</h1>
+            <h1 className={selectedNav === 'experience' && 'underline'}>Experience</h1>
             {EXPERIENCE.map(exp => (
-              <div key={exp.title} className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3'>
+              <div key={exp.title}
+                onClick={() => setIsOpen(true)}
+                className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3 cursor-pointer'
+              >
                 <div className='font-bold text-2xl'>
                   <strong>{exp.title}</strong>
                 </div>
@@ -96,7 +100,7 @@ function App() {
           </div>
           <br />
           <div className='flex flex-col w-[91vw] items-start gap-2' id='education'>
-            <h1>Education</h1>
+            <h1 className={selectedNav === 'education' && 'underline'}>Education</h1>
             {EDUCATION.map((ed) => (
               <div key={ed.title} className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3'>
                 <div className='font-bold text-2xl'>
@@ -110,11 +114,11 @@ function App() {
           </div>
           <br />
           <div className='flex flex-col w-[91vw] items-start gap-2' id='projects'>
-            <h1>Projects</h1>
+            <h1 className={selectedNav === 'projects' && 'underline'}>Projects</h1>
             <div className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3'>
               {PROJECTS.map((project) => (
                 <div className='font-bold text-2xl' key={project.link}>
-                  <strong className='cursor-help'>
+                  <strong className='cursor-pointer'>
                     {project.title}&nbsp;
                     {project.withLink && <a href={project.link} target='_blank' className='float-right cursor-pointer'><img src='src/assets/icons/new-tab.svg' height={30} width={30} /></a>}
                   </strong>

@@ -126,3 +126,9 @@ Hover: #809fff (light pastel blue)
 .skill-subgrid {
   @apply bg-[#161a22] p-1 border-dashed rounded-md gap-1 grid grid-cols-subgrid grid-rows-subgrid;
 }
+
+@media (min-width: 0px) and (max-width: 640px) {
+  div[id] {
+    scroll-margin-top: 80px;
+  }
+}

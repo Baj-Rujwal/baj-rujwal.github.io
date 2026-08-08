@@ -1,3 +1,20 @@
+import {
+    phpLogo,
+    typescriptLogo,
+    pythonLogo,
+    databaseLogo,
+    laravelLogo,
+    nodejsLogo,
+    reactLogo,
+    tailwindcssLogo,
+    mysqlLogo,
+    postgresqlLogo,
+    redisLogo,
+    gitLogo,
+    dockerLogo,
+    linuxLogo,
+} from './icons';
+
 interface Projects {
     title: string;
     withLink: boolean;
@@ -81,42 +98,42 @@ const SKILLS: Record<string, Omit<Projects, "description">[]> =
         {
             title: "PHP",
             withLink: true,
-            link: "src/assets/icons/php-light.svg",
+            link: phpLogo,
         },
         {
             title: "Typescript",
             withLink: true,
-            link: "src/assets/icons/typescript.svg",
+            link: typescriptLogo,
         },
         {
             title: "Python",
             withLink: true,
-            link: "src/assets/icons/python-light.svg",
+            link: pythonLogo,
         },
         {
             title: "SQL",
             withLink: true,
-            link: "src/assets/icons/database.svg",
+            link: databaseLogo,
         },
         {
             title: "Laravel",
             withLink: true,
-            link: "src/assets/icons/laravel-light.svg",
+            link: laravelLogo,
         },
         {
             title: "NodeJS",
             withLink: true,
-            link: "src/assets/icons/nodejs-light.svg",
+            link: nodejsLogo,
         },
         {
             title: "React",
             withLink: true,
-            link: "src/assets/icons/react-light.svg",
+            link: reactLogo,
         },
         {
             title: "TailwindCSS",
             withLink: true,
-            link: "src/assets/icons/tailwindcss-light.svg",
+            link: tailwindcssLogo,
         },
         {
             title: "APIs",
@@ -131,17 +148,17 @@ const SKILLS: Record<string, Omit<Projects, "description">[]> =
         {
             title: "MySQL",
             withLink: true,
-            link: "src/assets/icons/mysql-light.svg",
+            link: mysqlLogo,
         },
         {
             title: "PostgreSQL",
             withLink: true,
-            link: "src/assets/icons/postgresql-light.svg",
+            link: postgresqlLogo,
         },
         {
             title: "Redis",
             withLink: true,
-            link: "src/assets/icons/redis-light.svg",
+            link: redisLogo,
         },
         {
             title: "ORMs",
@@ -152,17 +169,17 @@ const SKILLS: Record<string, Omit<Projects, "description">[]> =
         {
             title: "Git",
             withLink: true,
-            link: "src/assets/icons/git.svg",
+            link: gitLogo,
         },
         {
             title: "Docker",
             withLink: true,
-            link: "src/assets/icons/docker.svg",
+            link: dockerLogo,
         },
         {
             title: "Linux",
             withLink: true,
-            link: "src/assets/icons/linux.svg",
+            link: linuxLogo,
         },
     ],
     "AI": [

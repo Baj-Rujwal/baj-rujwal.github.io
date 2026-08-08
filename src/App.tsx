@@ -27,13 +27,13 @@ function App() {
         </Modal>
       }
 
-      <div className='ml-[6vw] w-[94vw] h-screen flex flex-col justify-around items-center p-2'>
+      <div className='sm:ml-[6vw] sm:w-[94vw] h-screen flex flex-col justify-around items-center p-2 sm:mt-0 mt-21.25'>
         <div className='font-semibold text-6xl md:text-9xl'>
           <strong>
             SOFTWARE ENGINEER
           </strong>
         </div>
-        <section id='certificates' className='my-2 flex flex-col items-start'>
+        <section className='my-2 flex flex-col items-start'>
           <span className='text-[#c91b68] flex'><img src='src/assets/icons/location.svg' height={30} width={30} />&nbsp; Sydney, NSW</span>
           <br />
           <div className='flex gap-4 mb-2'>
@@ -44,59 +44,65 @@ function App() {
           </div>
         </section>
         <div>
-          <strong className='text-[#c91b68]'>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.
+          Hi! I'm a <strong className='text-[#c91b68]'>Fullstack Software Engineer</strong> with over 4 years of experience architecting scalable web applications, robust APIs, and complex system integrations. I specialize in bridging traditional backend engineering—using PHP, Node.js, and Python—with modern AI-driven solutions, including LLM integration, vector databases, and semantic search.
+          A proactive problem-solver with a strong track record of translating business needs into high-performing technical solutions and optimizing SQL databases.
         </div>
       </div>
-      <section className='flex h-screen'>
-        <aside className='fixed top-0 w-[5vw] flex flex-col justify-center h-full'>
+      <section className='flex flex-col h-100vh'>
+        <aside className='fixed top-0 w-full sm:w-[5vw] h-20 flex sm:flex-col justify-center sm:h-full bg-[#0d0f12] sm:bg-transparent border-b-2 border-amber-300 sm:border-0'>
           <span className='nav-item' onClick={() => setSelectedNav('skills')}><a href='#skills'><img src='src/assets/icons/gears.svg' width={40} height={40} /></a></span>
           <span className='nav-item' onClick={() => setSelectedNav('experience')}><a href='#experience'><img src='src/assets/icons/steps.svg' width={40} height={40} /></a></span>
           <span className='nav-item' onClick={() => setSelectedNav('education')}><a href='#education'><img src='src/assets/icons/education.svg' width={40} height={40} /></a></span>
           <span className='nav-item' onClick={() => setSelectedNav('projects')}><a href='#projects'><img src='src/assets/icons/projects.svg' width={40} height={40} /></a></span>
         </aside>
-        <main className='ml-[6vw] pl-5 flex-1'>
+        <main className='sm:ml-[6vw] pl-5 flex-1'>
           <div className='flex flex-col items-start' id='skills'>
             <h1 className={selectedNav === 'skills' && 'underline'}>Skills</h1>
-            <div className='grid grid-cols-8 grid-rows-5 gap-3 mx-2'>
-              <div className='skill-subgrid col-span-4 row-span-3'>
+            <div className='grid sm:grid-cols-8 sm:grid-rows-5 grid-cols-6 gap-3 mr-2'>
+              <div className='skill-subgrid sm:col-span-4 row-span-3 col-span-6'>
                 {HARD_SKILLS.map(sk => (
                   <div className='tech-tag' key={sk.link}>
-                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}{sk.title}
+                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}
+                    {sk.withLink ? <div className='hidden sm:block'>{sk.title}</div> : sk.title}
                   </div>
                 ))}
               </div>
-              <div className='skill-subgrid col-span-3 row-span-3'>
+              <div className='skill-subgrid sm:col-span-3 sm:row-span-3 col-span-6'>
                 {DB.map(sk => (
                   <div className='tech-tag' key={sk.link}>
-                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}{sk.title}
+                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}
+                    {sk.withLink ? <div className='hidden sm:block'>{sk.title}</div> : sk.title}
                   </div>
                 ))}
               </div>
-              <div className='skill-subgrid col-span-1 row-span-3'>
+              <div className='skill-subgrid sm:col-span-1 sm:row-span-3 col-span-6'>
                 {TOOLS.map(sk => (
                   <div className='tech-tag' key={sk.link}>
-                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}{sk.title}
+                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}
+                    {sk.withLink ? <div className='hidden sm:block'>{sk.title}</div> : sk.title}
                   </div>
                 ))}
               </div>
-              <div className='skill-subgrid col-span-8 row-span-1'>
+              <div className='skill-subgrid sm:col-span-8 sm:row-span-1 col-span-6'>
                 {AI.map(sk => (
-                  <div className='tech-tag' key={sk.link}>
-                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}{sk.title}
+                  <div className='tech-tag sm:col-span-1 col-span-2' key={sk.link}>
+                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}
+                    {sk.withLink ? <div className='hidden sm:block'>{sk.title}</div> : sk.title}
                   </div>
                 ))}
               </div>
-              <div className='skill-subgrid col-span-8 row-span-1'>
+              <div className='skill-subgrid sm:col-span-8 sm:row-span-1 col-span-6'>
                 {SOFT_SKILLS.map(sk => (
-                  <div className='tech-tag' key={sk.link}>
-                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}{sk.title}
+                  <div className='tech-tag sm:col-span-1 col-span-2' key={sk.link}>
+                    {sk.withLink && <img src={sk.link} height={50} width={50} className='justify-self-center' />}
+                    {sk.withLink ? <div className='hidden sm:block'>{sk.title}</div> : sk.title}
                   </div>
                 ))}
               </div>
             </div>
           </div>
           <br />
-          <div className='flex flex-col w-[91vw] items-start gap-2' id='experience'>
+          <div className='flex flex-col mr-2 items-start gap-2 text-left' id='experience'>
             <h1 className={selectedNav === 'experience' && 'underline'}>Experience</h1>
             {EXPERIENCE.map(exp => (
               <div key={exp.title}
@@ -113,7 +119,7 @@ function App() {
             ))}
           </div>
           <br />
-          <div className='flex flex-col w-[91vw] items-start gap-2' id='education'>
+          <div className='flex flex-col mr-2 items-start gap-2 text-left' id='education'>
             <h1 className={selectedNav === 'education' && 'underline'}>Education</h1>
             {EDUCATION.map((ed) => (
               <div key={ed.title} className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3'>
@@ -127,7 +133,7 @@ function App() {
             ))}
           </div>
           <br />
-          <div className='flex flex-col w-[91vw] items-start gap-2' id='projects'>
+          <div className='flex flex-col mr-2 items-start gap-2 text-left' id='projects'>
             <h1 className={selectedNav === 'projects' && 'underline'}>Projects</h1>
             <div className='flex flex-col w-full p-2 rounded-lg items-start bg-[#161a22] gap-3'>
               {PROJECTS.map((project) => (

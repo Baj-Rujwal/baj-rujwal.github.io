@@ -57,7 +57,7 @@ const PROJECTS: Projects[] = [
 
 const EDUCATION: Experience[] = [
     {
-        title: "Bachelor of Computer Engineering — Khwopa Engineering College",
+        title: "Bachelor of Computer Engineering",
         duration: "2016 - 2021",
     },
 ];
@@ -84,7 +84,7 @@ const EXPERIENCE: Experience[] = [
         ],
     },
     {
-        title: "Software Engineer Intern - Associate Software Engineer) - Diagonal Technologies",
+        title: "(Software Engineer Intern - Associate Software Engineer) - Diagonal Technologies",
         duration: "NOVEMBER 2021 - OCTOBER 2023",
         description: [
             "Developed a in-house HR solution helping maintain attendance, leaves, holidays and salary.",
